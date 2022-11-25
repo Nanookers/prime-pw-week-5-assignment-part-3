@@ -48,7 +48,7 @@ Update the `3-music-collection.js` file to do the following:
 
 ### Stretch goals
 
-- Create a function called `search`. This function should:
+- Create a function called `search`. This function should:  //investigate default parameters
   - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
   ```
   { artist: 'Ray Charles', year: 1957 }
