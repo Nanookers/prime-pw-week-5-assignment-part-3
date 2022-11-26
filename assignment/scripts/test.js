@@ -16,7 +16,7 @@ console.log(addToCollection( `The Blood Inside`, `Ulver`, `2007`));
 console.log(addToCollection( `Perdition City`, `Ulver`, `2000`));
 console.log(addToCollection( `Roads to the North`, `Panopticon`, `2014`));
 
-
+console.log(`<_________search_________>`);
 function defaultParam( artist, released, searchFound = [], foundObject = {} ){
     for (let i = 0; i < collection.length; i++){
         if( collection[i].artist === artist && collection[i].released === released ){
@@ -24,7 +24,7 @@ function defaultParam( artist, released, searchFound = [], foundObject = {} ){
             searchFound.push(foundObject);
             return searchFound; // returns entered information.
         }//any else statements don't return anything past the first item in the array. 
-        if (collection[i].artist != artist && collection[i].released !=released) {
+        if (collection[i].artist != artist || collection[i].released !=released) {
             collection++;
             return searchFound;
             
@@ -35,7 +35,7 @@ function defaultParam( artist, released, searchFound = [], foundObject = {} ){
     }
 }
 
-console.log(defaultParam( `Ulver`, `200`));
+console.log(defaultParam( ));
 
 /*
 console.log(`<_________Add to Collection__________>`);
