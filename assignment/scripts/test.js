@@ -2,7 +2,42 @@
 
 let collection = [];
 
+console.log(`<_________Add to Collection__________>`);
+function addToCollection( title, artist, released ){//changed yearPublished to released for shorthand.
+    let record = {
+        title: title,
+        artist: artist,
+       released: released
+    };
+        collection.push(record);
+    return console.log( record );
+}
+console.log(addToCollection( `The Blood Inside`, `Ulver`, `2007`));
+console.log(addToCollection( `Perdition City`, `Ulver`, `2000`));
+console.log(addToCollection( `Roads to the North`, `Panopticon`, `2014`));
 
+
+function defaultParam( artist, released, searchFound = [], foundObject = {} ){
+    for (let i = 0; i < collection.length; i++){
+        if( collection[i].artist === artist && collection[i].released === released ){
+            foundObject = { artist: artist, released: released };
+            searchFound.push(foundObject);
+            return searchFound; // returns entered information.
+        }//any else statements don't return anything past the first item in the array. 
+        if (collection[i].artist != artist && collection[i].released !=released) {
+            collection++;
+            return searchFound;
+            
+        } else {
+            return collection;
+            
+        }
+    }
+}
+
+console.log(defaultParam( `Ulver`, `200`));
+
+/*
 console.log(`<_________Add to Collection__________>`);
 function addToCollection( title, artist, released ){//changed yearPublished to released for shorthand.
     let record = {};
@@ -50,9 +85,20 @@ console.log(findByArtist( `Ulver` ));
 console.log(findByArtist( `Panopticon` ));
 console.log(findByArtist( `ABBA` )); //does not post the value, but can't get empty array
 
+console.log(`<_________search_________>`);
 
 
-/*
+
+
+
+
+
+
+
+
+
+
+
   Different way of creating objects, using variable = new object function.
 collection = [];
 
