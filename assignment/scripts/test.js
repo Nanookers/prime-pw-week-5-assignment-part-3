@@ -2,19 +2,45 @@
 
 let collection = [];
 
+console.log(`<_________Tracks__________>`);
+
+//took a liberal definition of array and since objects are technically arrays, I used them in place of array.
+//Did not add them to the search
+let tbiTracks = {
+    trackOne: { song: `Dressed in Black`, duration: `7:08`},
+    trackTwo: { song: `For the Love of God`, duration: `4:11`},
+    trackThree: { song: `Christmas`, duration: `6:15`}
+}
+
+let pcTracks = {
+    trackOne: { song: `Lost in Moments`, duration: `7:15`},
+    trackTwo: { song: `Hallways of Always`, duration: `6:36`},
+    trackThree: { song: `Tomorrow Never Knows`, duration: `8:00`}
+}
+
+let rttnTracks = {
+    trackOne: { song: `The Echoes of a Disharmonic Evensong`, duration: `9:36`},
+    trackTwo: { song: `Where Mountains Pierce the Sky`, duration: `12:42`},
+    trackThree: { song: `One Last Fire`, duration: `5:55`}, 
+}
+console.log(rttnTracks);
+
 console.log(`<_________Add to Collection__________>`);
-function addToCollection( title, artist, released ){//changed yearPublished to released for shorthand.
+function addToCollection( title, artist, released, trackListing ){//changed yearPublished to released for shorthand.
     let record = {
         title: title,
         artist: artist,
-       released: released
+       released: released,
+       trackListing: trackListing
     };
         collection.push(record);
     return console.log( record );
 }
-console.log(addToCollection( `The Blood Inside`, `Ulver`, `2007`));
-console.log(addToCollection( `Perdition City`, `Ulver`, `2000`));
-console.log(addToCollection( `Roads to the North`, `Panopticon`, `2014`));
+
+console.log(addToCollection( `The Blood Inside`, `Ulver`, `2007`, tbiTracks));
+console.log(addToCollection( `Perdition City`, `Ulver`, `2000`, pcTracks));
+console.log(addToCollection( `Roads to the North`, `Panopticon`, `2014`, rttnTracks));
+
 
 console.log(`<_________search_________>`);
 function defaultParam( artist, released, searchFound = [], foundObject = {} ){
@@ -24,18 +50,15 @@ function defaultParam( artist, released, searchFound = [], foundObject = {} ){
             searchFound.push(foundObject);
             return searchFound; // returns entered information.
         }//any else statements don't return anything past the first item in the array. 
-        if (collection[i].artist != artist || collection[i].released !=released) {
+        if (collection[i].artist != artist && collection[i].released !=released) {
             collection++;
             return searchFound;
             
-        } else {
-            return collection;
-            
-        }
+        } //can't get the empty parameter to post
     }
 }
 
-console.log(defaultParam( ));
+console.log(defaultParam( `Ulver`, `2007` ));
 
 /*
 console.log(`<_________Add to Collection__________>`);
